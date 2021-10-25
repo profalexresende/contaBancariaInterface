@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace contaBancaria_heranca
 {
@@ -20,6 +21,14 @@ namespace contaBancaria_heranca
         {
             this.saldo = saldo;
             this.reajusteMensal = reajusteMensal;
+        }
+        public void atualizarSaldos(double reajuste)
+        {
+            double saldoAnterior = this.saldo;
+            saldo += saldo * (reajuste / 100);
+
+            MessageBox.Show("Saldo Anterior: " + saldoAnterior.ToString() +
+                    "\nSaldo Atual: " + this.saldo);
         }
     }
 }

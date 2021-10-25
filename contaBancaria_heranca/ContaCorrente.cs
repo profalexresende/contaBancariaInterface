@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace contaBancaria_heranca
 {
@@ -20,6 +21,19 @@ namespace contaBancaria_heranca
         {
             this.limiteEspecial = limiteEspecial;
             this.saldo = saldo;
+        }
+
+        public override void debitar(double valor)
+        {
+            if (valor <= this.saldo + this.limiteEspecial)
+            {
+                saldo -= valor;
+                MessageBox.Show("Saque efetuado");
+            }
+            else
+            {
+                MessageBox.Show("Saldo Insuficiente");
+            }
         }
 
     }

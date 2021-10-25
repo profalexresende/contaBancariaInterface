@@ -35,6 +35,7 @@ namespace contaBancaria_heranca
             this.btnDepositar = new System.Windows.Forms.Button();
             this.btnConsultarSaldo = new System.Windows.Forms.Button();
             this.btnSacar = new System.Windows.Forms.Button();
+            this.btnAtualizaSaldo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,11 +95,22 @@ namespace contaBancaria_heranca
             this.btnSacar.UseVisualStyleBackColor = true;
             this.btnSacar.Click += new System.EventHandler(this.btnSacar_Click);
             // 
+            // btnAtualizaSaldo
+            // 
+            this.btnAtualizaSaldo.Location = new System.Drawing.Point(53, 202);
+            this.btnAtualizaSaldo.Name = "btnAtualizaSaldo";
+            this.btnAtualizaSaldo.Size = new System.Drawing.Size(121, 23);
+            this.btnAtualizaSaldo.TabIndex = 6;
+            this.btnAtualizaSaldo.Text = "Atualizar Saldo";
+            this.btnAtualizaSaldo.UseVisualStyleBackColor = true;
+            this.btnAtualizaSaldo.Click += new System.EventHandler(this.btnAtualizaSaldo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 219);
+            this.ClientSize = new System.Drawing.Size(231, 249);
+            this.Controls.Add(this.btnAtualizaSaldo);
             this.Controls.Add(this.btnSacar);
             this.Controls.Add(this.btnConsultarSaldo);
             this.Controls.Add(this.btnDepositar);
@@ -120,6 +132,7 @@ namespace contaBancaria_heranca
         private System.Windows.Forms.Button btnDepositar;
         private System.Windows.Forms.Button btnConsultarSaldo;
         private System.Windows.Forms.Button btnSacar;
+        private System.Windows.Forms.Button btnAtualizaSaldo;
     }
 }
 

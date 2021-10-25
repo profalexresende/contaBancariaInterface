@@ -21,7 +21,7 @@ namespace contaBancaria_heranca
             this.saldo = saldo;
         }
 
-        public void debitar(double valor)
+        public virtual void debitar(double valor)
         {
             this.saldo -= valor;
             MessageBox.Show("Saque efetuado");
@@ -31,6 +31,16 @@ namespace contaBancaria_heranca
         {
             this.saldo += valor;
             MessageBox.Show("Depósito Efetuado");
+        }
+        public void atualizarSaldos()
+        {
+            double saldoAnterior = this.saldo;
+            if (this.saldo<0)
+            {
+                saldo += saldo * 0.08;
+            }
+            MessageBox.Show("Saldo Anterior: " + saldoAnterior.ToString() +
+                "\nSaldo Atual: " + this.saldo);
         }
     }
 }

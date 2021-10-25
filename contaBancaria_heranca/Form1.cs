@@ -40,14 +40,9 @@ namespace contaBancaria_heranca
             switch (cmbTipoConta.SelectedIndex)
             {
                 case 0:
-                    if (valor <= (cc1.saldo + cc1.limiteEspecial))
-                    {
+ 
                         cc1.debitar(valor);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Saldo insuficiente");
-                    }
+
                     break;
                 case 1:
                     if (valor <= cp1.saldo)
@@ -71,6 +66,20 @@ namespace contaBancaria_heranca
                     break;
                 case 1:
                     MessageBox.Show("Saldo em Poupança: R$" + cp1.saldo.ToString());
+                    break;
+            }
+        }
+
+        private void btnAtualizaSaldo_Click(object sender, EventArgs e)
+        {
+            switch (cmbTipoConta.SelectedIndex)
+            {
+                case 0:
+                    cc1.atualizarSaldos();
+                    break;
+                case 1:
+                    double reajuste = Convert.ToDouble(Interaction.InputBox("Digite a taxa de reajuste"));
+                    cp1.atualizarSaldos(reajuste);
                     break;
             }
         }
