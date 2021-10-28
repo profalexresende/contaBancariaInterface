@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace contaBancaria_heranca
 {
-    class ContaPoupanca:Conta
+    class ContaPoupanca: Conta, IConta
     {
         public double reajusteMensal { get; set; }
+        
 
         public ContaPoupanca()
         {
@@ -22,6 +23,7 @@ namespace contaBancaria_heranca
             this.saldo = saldo;
             this.reajusteMensal = reajusteMensal;
         }
+
         public void atualizarSaldos(double reajuste)
         {
             double saldoAnterior = this.saldo;
@@ -29,6 +31,24 @@ namespace contaBancaria_heranca
 
             MessageBox.Show("Saldo Anterior: " + saldoAnterior.ToString() +
                     "\nSaldo Atual: " + this.saldo);
+        }
+
+        public void atualizarSaldos()
+        {
+           
+        }
+
+        public void Debitar(double valor)
+        {
+            if (valor <= this.saldo )
+            {
+                saldo -= valor;
+                MessageBox.Show("Saque efetuado");
+            }
+            else
+            {
+                MessageBox.Show("Saldo Insuficiente");
+            }
         }
     }
 }

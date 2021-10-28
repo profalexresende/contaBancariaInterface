@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace contaBancaria_heranca
 {
-    class ContaCorrente:Conta
+    class ContaCorrente :Conta, IConta
     {
         public double limiteEspecial { get; set; }
+       
 
         public ContaCorrente()
         {
@@ -17,13 +18,13 @@ namespace contaBancaria_heranca
             this.saldo = 0;
         }
 
-        public ContaCorrente(double saldo,double limiteEspecial)
+        public ContaCorrente(double saldo, double limiteEspecial)
         {
             this.limiteEspecial = limiteEspecial;
             this.saldo = saldo;
         }
 
-        public override void debitar(double valor)
+        public void Debitar(double valor)
         {
             if (valor <= this.saldo + this.limiteEspecial)
             {
@@ -36,5 +37,17 @@ namespace contaBancaria_heranca
             }
         }
 
+        
+
+        public void atualizarSaldos()
+        {
+            double saldoAnterior = this.saldo;
+            if (this.saldo < 0)
+            {
+                saldo += saldo * 0.08;
+            }
+            MessageBox.Show("Saldo Anterior: " + saldoAnterior.ToString() +
+                "\nSaldo Atual: " + this.saldo);
+        }
     }
 }
